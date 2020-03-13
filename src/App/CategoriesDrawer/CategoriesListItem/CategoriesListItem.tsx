@@ -12,6 +12,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { EditCategoryDialog } from '../../EditCategoryDialog';
 import { DeleteCategoryDialog } from '../../DeleteCategoryDialog';
+import { CategoryMenu } from '../CategoryMenu';
 
 type CategoriesListItemProps = {
   description: string;
@@ -23,32 +24,9 @@ export const CategoriesListItem = ({
   maximized
 }: CategoriesListItemProps) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const [deleteCategoryDialogOpen, setDeleteCategoryDialogOpen] = useState(
-    false
-  );
-  const [editCategoryDialogOpen, setEditCategoryDialogOpen] = useState(false);
 
-  const onDeleteCategoryDialogClose = () => {
-    setDeleteCategoryDialogOpen(false);
-  };
-
-  const onEditCategoryDialogClose = () => {
-    setEditCategoryDialogOpen(false);
-  };
-
-  const onClick = (event: React.MouseEvent<HTMLElement>) =>
+  const onClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
-
-  const onDeleteCategoryMenuItemClick = () => {
-    onClose();
-
-    setDeleteCategoryDialogOpen(true);
-  };
-
-  const onEditCategoryMenuItemClick = () => {
-    onClose();
-
-    setEditCategoryDialogOpen(true);
   };
 
   const onClose = () => setAnchorEl(null);
@@ -71,28 +49,10 @@ export const CategoriesListItem = ({
         </ListItemSecondaryAction>
       </ListItem>
 
-      <Menu
+      <CategoryMenu
         anchorEl={anchorEl}
-        keepMounted
         onClose={onClose}
         open={Boolean(anchorEl)}
-      >
-        <MenuItem dense onClick={onEditCategoryMenuItemClick}>
-          {'Edit category'}
-        </MenuItem>
-        <MenuItem dense onClick={onDeleteCategoryMenuItemClick}>
-          {'Delete category'}
-        </MenuItem>
-      </Menu>
-
-      <DeleteCategoryDialog
-        onClose={onDeleteCategoryDialogClose}
-        open={deleteCategoryDialogOpen}
-      />
-
-      <EditCategoryDialog
-        onClose={onEditCategoryDialogClose}
-        open={editCategoryDialogOpen}
       />
     </>
   );
