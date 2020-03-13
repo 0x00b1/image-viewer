@@ -4,7 +4,7 @@ import React, {useState} from "react";
 import {useStyles} from "./App.css";
 import {ApplicationAppBar} from "./ApplicationAppBar";
 import {CategoriesDrawer} from "./CategoriesDrawer";
-import {Image} from "./Image";
+import {ImageCanvas} from "./ImageCanvas";
 import {ImageDrawer} from "./ImageDrawer";
 
 export const App = () => {
@@ -28,7 +28,7 @@ export const App = () => {
       <main className={styles.content}>
         <div className={styles.toolbar} />
 
-        <Image/>
+        <ImageCanvas/>
       </main>
     </div>
   );
