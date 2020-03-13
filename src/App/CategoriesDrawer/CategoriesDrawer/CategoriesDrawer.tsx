@@ -1,7 +1,7 @@
 import React from 'react';
 import Drawer from '@material-ui/core/Drawer';
 import { useStyles } from './CategoriesDrawer.css';
-import { CategoriesList } from '../CategoriesList/CategoriesList';
+import { CategoriesList } from '../CategoriesList';
 import IconButton from '@material-ui/core/IconButton';
 import { useTheme } from '@material-ui/core';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
