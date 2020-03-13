@@ -23,9 +23,21 @@
     "three": "^0.113.2",
     "typescript": "~3.7.2"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
+  },
   "scripts": {
     "build": "react-scripts build",
     "eject": "react-scripts eject",
+    "precommit": "lint-staged",
     "start": "react-scripts start",
     "test": "react-scripts test"
   },
@@ -43,5 +55,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
+    "prettier": "^1.19.1",
+    "react-vis-types": "^0.0.6"
   }
 }

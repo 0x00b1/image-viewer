@@ -1,13 +1,12 @@
-import React, {useMemo, useRef} from 'react';
-import "react-three-fiber";
+import React, { useMemo, useRef } from 'react';
+import 'react-three-fiber';
 import * as THREE from 'three';
-
 
 type ImageMeshProps = {
   image: string;
 };
 
-export const ImageMesh = ({image}: ImageMeshProps) => {
+export const ImageMesh = ({ image }: ImageMeshProps) => {
   const ref = useRef();
 
   const texture = useMemo(() => {
