@@ -1,7 +1,7 @@
 /// <reference types="react-vis-types" />
 
 import * as React from 'react';
-import { AreaSeries, XYPlot } from 'react-vis';
+import { AreaSeries, FlexibleWidthXYPlot } from 'react-vis';
 import { Image } from 'image-js';
 
 type ImageHistogramProps = {
@@ -12,6 +12,7 @@ type ImageHistogramProps = {
 export const ImageHistogram = (props: ImageHistogramProps) => {
   const { bins, image } = props;
 
+  // @ts-ignore
   const histograms = image.getHistograms({ maxSlots: bins });
 
   const transform = (xs: number[]): { x: number; y: number }[] => {
@@ -20,8 +21,15 @@ export const ImageHistogram = (props: ImageHistogramProps) => {
     });
   };
 
+  const margin = {
+    bottom: 16,
+    left: 16,
+    right: 16,
+    top: 16
+  };
+
   return (
-    <XYPlot height={300} width={300}>
+    <FlexibleWidthXYPlot height={100} margin={margin}>
       <AreaSeries
         color="#e53935"
         data={transform(histograms[0])}
@@ -37,6 +45,6 @@ export const ImageHistogram = (props: ImageHistogramProps) => {
         data={transform(histograms[2])}
         opacity={0.5}
       />
-    </XYPlot>
+    </FlexibleWidthXYPlot>
   );
 };
