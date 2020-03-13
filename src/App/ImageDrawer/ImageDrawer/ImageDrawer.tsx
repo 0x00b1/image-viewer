@@ -1,14 +1,21 @@
 import React from 'react';
 import Drawer from '@material-ui/core/Drawer';
 import { useStyles } from './ImageDrawer.css';
-import { ImageHistogram } from '../ImageHistogram/ImageHistogram';
+import { ImageHistogram } from '../ImageHistogram';
 import { Image } from 'image-js';
+import { BrightnessSlider } from '../BrightnessSlider';
 
 type ImageDrawerProps = {
+  brightness: number;
+  setBrightness: (brightness: number) => void;
   image: Image;
 };
 
-export const ImageDrawer = ({ image }: ImageDrawerProps) => {
+export const ImageDrawer = ({
+  brightness,
+  setBrightness,
+  image
+}: ImageDrawerProps) => {
   const classes = useStyles();
 
   return (
@@ -21,6 +28,8 @@ export const ImageDrawer = ({ image }: ImageDrawerProps) => {
       <div className={classes.toolbar} />
 
       <ImageHistogram bins={16} image={image} />
+
+      <BrightnessSlider brightness={brightness} setBrightness={setBrightness} />
     </Drawer>
   );
 };

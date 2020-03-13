@@ -4,6 +4,8 @@ import * as THREE from 'three';
 import { Image } from 'image-js';
 
 type ImageMeshProps = {
+  brightness: number;
+  contrast: number;
   image: Image;
 };
 
@@ -38,7 +40,7 @@ const vertexShader = `
   }
 `;
 
-export const Mesh = ({ image }: ImageMeshProps) => {
+export const Mesh = ({ brightness, contrast, image }: ImageMeshProps) => {
   const texture = useMemo(() => {
     return new THREE.TextureLoader().load(image.toDataURL());
   }, [image]);
@@ -47,10 +49,10 @@ export const Mesh = ({ image }: ImageMeshProps) => {
 
   const uniforms = {
     brightness: {
-      value: 0
+      value: brightness
     },
     contrast: {
-      value: 0
+      value: contrast
     },
     image: {
       value: texture
