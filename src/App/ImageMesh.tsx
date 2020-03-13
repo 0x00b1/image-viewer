@@ -1,16 +1,17 @@
 import React, { useMemo, useRef } from 'react';
 import 'react-three-fiber';
 import * as THREE from 'three';
+import { Image } from 'image-js';
 
 type ImageMeshProps = {
-  image: string;
+  image: Image;
 };
 
 export const ImageMesh = ({ image }: ImageMeshProps) => {
   const ref = useRef();
 
   const texture = useMemo(() => {
-    return new THREE.TextureLoader().load(image);
+    return new THREE.TextureLoader().load(image.toDataURL());
   }, [image]);
 
   return (

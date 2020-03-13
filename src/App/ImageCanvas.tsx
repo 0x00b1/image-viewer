@@ -1,22 +1,23 @@
 import React from 'react';
-import {Canvas} from "react-three-fiber";
-import Grid from "@material-ui/core/Grid";
+import { Canvas } from 'react-three-fiber';
+import Grid from '@material-ui/core/Grid';
+import { Image } from 'image-js';
 
-import {useStyles} from "./ImageCanvas.css";
-import barbara from "./barbara.jpg";
-import {ImageMesh} from "./ImageMesh";
+import { useStyles } from './ImageCanvas.css';
+import { ImageMesh } from './ImageMesh';
 
-export const ImageCanvas = () => {
+type ImageCanvasProps = {
+  image: Image;
+};
+
+export const ImageCanvas = ({ image }: ImageCanvasProps) => {
   const classes = useStyles();
 
   return (
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-        <Grid container>
-          <Canvas>
-            <ImageMesh image={barbara}/>
-          </Canvas>
-        </Grid>
-      </main>
-  )
+    <Grid container>
+      <Canvas>
+        <ImageMesh image={image} />
+      </Canvas>
+    </Grid>
+  );
 };

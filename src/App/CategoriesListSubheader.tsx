@@ -1,10 +1,6 @@
 import React from 'react';
-import ListSubheader from "@material-ui/core/ListSubheader";
+import ListSubheader from '@material-ui/core/ListSubheader';
 
 export const CategoriesListSubheader = () => {
-  return (
-    <ListSubheader component="div">
-      {"Categories"}
-    </ListSubheader>
-  )
+  return <ListSubheader component="div">{'Categories'}</ListSubheader>;
 };

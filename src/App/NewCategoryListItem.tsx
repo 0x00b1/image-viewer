@@ -1,20 +1,22 @@
 import React from 'react';
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 import AddIcon from '@material-ui/icons/Add';
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import {useStyles} from "./NewCategoryListItem.css";
-import clsx from "clsx";
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import { useStyles } from './NewCategoryListItem.css';
+import clsx from 'clsx';
 
 type NewCategoryListItemProps = {
   maximized: boolean;
 };
 
-export const NewCategoryListItem = ({maximized}: NewCategoryListItemProps) => {
+export const NewCategoryListItem = ({
+  maximized
+}: NewCategoryListItemProps) => {
   const styles = useStyles();
 
   const className = clsx({
-    [styles.hide]: !maximized,
+    [styles.hide]: !maximized
   });
 
   return (
@@ -22,7 +24,7 @@ export const NewCategoryListItem = ({maximized}: NewCategoryListItemProps) => {
       <ListItemIcon>
         <AddIcon />
       </ListItemIcon>
-      <ListItemText primary={"New category"} />
+      <ListItemText primary={'New category'} />
     </ListItem>
-  )
+  );
 };

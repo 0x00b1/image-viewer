@@ -1,16 +1,19 @@
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 import clsx from 'clsx';
-import React from "react";
+import React from 'react';
 
-import {useStyles} from "./MaximizeButton.css";
+import { useStyles } from './MaximizeButton.css';
 
 type MaximizeButtonProps = {
   maximize: () => void;
   maximized: boolean;
-}
+};
 
-export const MaximizeButton = ({maximize, maximized}: MaximizeButtonProps) => {
+export const MaximizeButton = ({
+  maximize,
+  maximized
+}: MaximizeButtonProps) => {
   const classes = useStyles();
 
   const className = clsx(classes.iconButton, {
@@ -18,7 +21,12 @@ export const MaximizeButton = ({maximize, maximized}: MaximizeButtonProps) => {
   });
 
   return (
-    <IconButton className={className} color="inherit" edge="start" onClick={maximize}>
+    <IconButton
+      className={className}
+      color="inherit"
+      edge="start"
+      onClick={maximize}
+    >
       <MenuIcon />
     </IconButton>
   );

@@ -21,15 +21,10 @@ export const ImageHistogram = (props: ImageHistogramProps) => {
     });
   };
 
-  const margin = {
-    bottom: 16,
-    left: 16,
-    right: 16,
-    top: 16
-  };
+  const margin = { left: 16, right: 16, top: 16, bottom: 16 };
 
   return (
-    <FlexibleWidthXYPlot height={100} margin={margin}>
+    <FlexibleWidthXYPlot height={150} margin={margin}>
       <AreaSeries
         color="#e53935"
         data={transform(histograms[0])}

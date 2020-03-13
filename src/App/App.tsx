@@ -21,14 +21,14 @@ export const App = ({ src }: AppProps) => {
   const maximize = () => setMaximized(true);
   const minimize = () => setMaximized(false);
 
-  const openImage = async () => {
-    const opened = await Image.load(src);
-
-    setImage(opened);
-  };
-
   useEffect(() => {
-    openImage();
+    const openImage = async () => {
+      const opened = await Image.load(src);
+
+      setImage(opened);
+    };
+
+    openImage().then(response => {});
   }, [src]);
 
   return (
@@ -44,7 +44,7 @@ export const App = ({ src }: AppProps) => {
       <main className={styles.content}>
         <div className={styles.toolbar} />
 
-        <ImageCanvas />
+        <ImageCanvas image={image} />
       </main>
     </div>
   );
