@@ -1,7 +1,7 @@
 import React from 'react';
 import Drawer from '@material-ui/core/Drawer';
 import { useStyles } from './ImageDrawer.css';
-import { ImageHistogram } from './ImageHistogram';
+import { ImageHistogram } from '../ImageHistogram/ImageHistogram';
 import { Image } from 'image-js';
 
 type ImageDrawerProps = {

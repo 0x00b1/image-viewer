@@ -1,0 +1,1 @@
+export { CategoriesListSubheader } from './CategoriesListSubheader';

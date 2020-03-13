@@ -7,7 +7,7 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import LabelIcon from '@material-ui/icons/Label';
 import clsx from 'clsx';
-import { useStyles } from './NewCategoryListItem.css';
+import { useStyles } from '../NewCategoryListItem/NewCategoryListItem.css';
 
 type CategoriesListItemProps = {
   description: string;

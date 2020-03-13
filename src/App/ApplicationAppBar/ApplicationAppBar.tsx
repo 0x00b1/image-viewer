@@ -4,7 +4,7 @@ import React from 'react';
 
 import { useStyles } from './ApplicationAppBar.css';
 
-import { ApplicationToolbar } from './ApplicationToolbar';
+import { ApplicationToolbar } from '../ApplicationToolbar/ApplicationToolbar';
 
 type ApplicationAppBarProps = {
   maximize: () => void;

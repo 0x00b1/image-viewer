@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { App } from './App/App';
+import { App } from './App/App/App';
 import * as serviceWorker from './serviceWorker';
 import barbara from './App/barbara.jpg';
 

@@ -1,12 +1,8 @@
-import {
-  createStyles,
-  makeStyles,
-  Theme
-} from "@material-ui/core/styles";
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 const width = 240;
 
-let style = ({breakpoints, mixins, spacing, transitions}: Theme) => {
+let style = ({ breakpoints, mixins, spacing, transitions }: Theme) => {
   return createStyles({
     drawer: {
       flexShrink: 0,
@@ -28,7 +24,7 @@ let style = ({breakpoints, mixins, spacing, transitions}: Theme) => {
       }),
       width: spacing(7) + 1,
       [breakpoints.up('sm')]: {
-        width: spacing(9) + 1,
+        width: spacing(9) + 1
       }
     },
     toolbar: {

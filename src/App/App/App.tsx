@@ -3,10 +3,10 @@ import { Image } from 'image-js';
 import React, { useEffect, useState } from 'react';
 
 import { useStyles } from './App.css';
-import { ApplicationAppBar } from './ApplicationAppBar';
-import { CategoriesDrawer } from './CategoriesDrawer';
-import { ImageCanvas } from './ImageCanvas';
-import { ImageDrawer } from './ImageDrawer';
+import { ApplicationAppBar } from '../ApplicationAppBar/ApplicationAppBar';
+import { CategoriesDrawer } from '../CategoriesDrawer/CategoriesDrawer';
+import { ImageCanvas } from '../ImageCanvas/ImageCanvas';
+import { ImageDrawer } from '../ImageDrawer/ImageDrawer';
 
 type AppProps = {
   src: string;

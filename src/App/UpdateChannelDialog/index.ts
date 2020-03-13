@@ -1,0 +1,1 @@
+export { UpdateChannelDialog } from './UpdateChannelDialog';

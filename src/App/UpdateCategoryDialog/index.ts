@@ -1,0 +1,1 @@
+export { UpdateCategoryDialog } from './UpdateCategoryDialog';
