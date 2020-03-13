@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import { Image } from 'image-js';
 
 import { useStyles } from './ImageCanvas.css';
-import { ImageMesh } from '../ImageMesh/ImageMesh';
+import { Mesh } from '../Mesh';
 
 type ImageCanvasProps = {
   image: Image;
@@ -16,7 +16,7 @@ export const ImageCanvas = ({ image }: ImageCanvasProps) => {
   return (
     <Grid container>
       <Canvas className={styles.canvas}>
-        <ImageMesh image={image} />
+        <Mesh image={image} />
       </Canvas>
     </Grid>
   );

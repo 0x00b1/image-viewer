@@ -1,1 +1,0 @@
-export { ImageMesh } from './ImageMesh';
