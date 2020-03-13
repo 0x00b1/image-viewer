@@ -2,8 +2,8 @@ import List from '@material-ui/core/List';
 import React from 'react';
 
 import { useStyles } from './CategoriesList.css';
-import { CategoriesListItem } from '../CategoriesListItem/CategoriesListItem';
-import { NewCategoryListItem } from '../NewCategoryListItem/NewCategoryListItem';
+import { CategoriesListItem } from '../CategoriesListItem';
+import { NewCategoryListItem } from '../NewCategoryListItem';
 
 type CategoriesListProps = {
   maximized: boolean;
