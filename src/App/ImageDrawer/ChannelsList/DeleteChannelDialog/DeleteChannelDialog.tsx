@@ -4,18 +4,18 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import React from 'react';
 
-type DeleteCategoryDialogProps = {
+type DeleteChannelDialogProps = {
   onClose: () => void;
   open: boolean;
 };
 
-export const DeleteCategoryDialog = ({
-  onClose,
-  open
-}: DeleteCategoryDialogProps) => {
+export const DeleteChannelDialog = ({
+                                       onClose,
+                                       open
+                                     }: DeleteChannelDialogProps) => {
   return (
-    <Dialog onClose={onClose} open={open}>
-      <DialogTitle>{'Delete category?'}</DialogTitle>
+    <Dialog fullWidth onClose={onClose} open={open}>
+      <DialogTitle>{'Delete channel?'}</DialogTitle>
 
       <DialogActions>
         <Button onClick={onClose} color="primary">

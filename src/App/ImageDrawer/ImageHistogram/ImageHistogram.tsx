@@ -3,14 +3,15 @@
 import * as React from 'react';
 import { AreaSeries, FlexibleWidthXYPlot } from 'react-vis';
 import { Image } from 'image-js';
+import {useStyles} from "./ImageHistogram.css";
 
 type ImageHistogramProps = {
   bins: number;
   image: Image;
 };
 
-export const ImageHistogram = (props: ImageHistogramProps) => {
-  const { bins, image } = props;
+export const ImageHistogram = ({bins, image}: ImageHistogramProps) => {
+  const styles = useStyles();
 
   // @ts-ignore
   const histograms = image.getHistograms({ maxSlots: bins });
@@ -24,7 +25,7 @@ export const ImageHistogram = (props: ImageHistogramProps) => {
   const margin = { left: 16, right: 16, top: 16, bottom: 16 };
 
   return (
-    <FlexibleWidthXYPlot height={150} margin={margin}>
+    <FlexibleWidthXYPlot className={styles.root} height={150} margin={margin}>
       <AreaSeries
         color="#e53935"
         data={transform(histograms[0])}

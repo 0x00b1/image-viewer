@@ -5,7 +5,7 @@ import AddIcon from '@material-ui/icons/Add';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import { useStyles } from './NewCategoryListItem.css';
 import clsx from 'clsx';
-import { NewCategoryDialog } from '../../NewCategoryDialog';
+import { NewCategoryDialog } from '../NewCategoryDialog';
 
 type NewCategoryListItemProps = {
   maximized: boolean;

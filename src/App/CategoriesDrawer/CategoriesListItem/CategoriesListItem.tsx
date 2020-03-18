@@ -8,19 +8,16 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import LabelIcon from '@material-ui/icons/Label';
 import clsx from 'clsx';
 import { useStyles } from '../NewCategoryListItem/NewCategoryListItem.css';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
-import { EditCategoryDialog } from '../../EditCategoryDialog';
-import { DeleteCategoryDialog } from '../../DeleteCategoryDialog';
 import { CategoryMenu } from '../CategoryMenu';
+import {Category} from "../../../store/reducer";
 
 type CategoriesListItemProps = {
-  description: string;
+  category: Category;
   maximized: boolean;
 };
 
 export const CategoriesListItem = ({
-  description,
+  category,
   maximized
 }: CategoriesListItemProps) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -39,7 +36,7 @@ export const CategoriesListItem = ({
         <ListItemIcon>
           <LabelIcon />
         </ListItemIcon>
-        <ListItemText primary={description} />
+        <ListItemText primary={category.description} />
         <ListItemSecondaryAction
           className={clsx({ [styles.hide]: !maximized })}
         >
@@ -51,6 +48,7 @@ export const CategoriesListItem = ({
 
       <CategoryMenu
         anchorEl={anchorEl}
+        category={category}
         onClose={onClose}
         open={Boolean(anchorEl)}
       />

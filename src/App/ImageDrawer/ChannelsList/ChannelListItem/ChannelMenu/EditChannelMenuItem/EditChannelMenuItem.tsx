@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import MenuItem from '@material-ui/core/MenuItem';
-import { EditCategoryDialog } from '../EditCategoryDialog';
-import {Category} from "../../../store/reducer";
 
-type CategoryMenuProps = {
-  category: Category;
+type EditChannelMenuItemProps = {
   onMenuClose: () => void;
 };
 
-export const EditCategoryMenuItem = ({ category, onMenuClose }: CategoryMenuProps) => {
+export const EditChannelMenuItem = ({
+                                        onMenuClose
+                                      }: EditChannelMenuItemProps) => {
   const [open, setOpen] = useState(false);
 
   const onClose = () => {
@@ -24,10 +23,8 @@ export const EditCategoryMenuItem = ({ category, onMenuClose }: CategoryMenuProp
   return (
     <>
       <MenuItem dense onClick={onClick}>
-        {'Edit category'}
+        {'Edit channel'}
       </MenuItem>
-
-      <EditCategoryDialog category={category} onClose={onClose} open={open} />
     </>
   );
 };

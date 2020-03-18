@@ -3,7 +3,7 @@ import Drawer from '@material-ui/core/Drawer';
 import { useStyles } from './ImageDrawer.css';
 import { ImageHistogram } from '../ImageHistogram';
 import { Image } from 'image-js';
-import { BrightnessSlider } from '../BrightnessSlider';
+import {ChannelsList} from "../ChannelsList";
 
 type ImageDrawerProps = {
   brightness: number;
@@ -29,7 +29,7 @@ export const ImageDrawer = ({
 
       <ImageHistogram bins={16} image={image} />
 
-      <BrightnessSlider brightness={brightness} setBrightness={setBrightness} />
+      <ChannelsList/>
     </Drawer>
   );
 };

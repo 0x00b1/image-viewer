@@ -6,23 +6,23 @@ import TextField from '@material-ui/core/TextField';
 import DialogActions from '@material-ui/core/DialogActions';
 import Button from '@material-ui/core/Button';
 
-type EditCategoryDialogProps = {
+type EditChannelDialogProps = {
   onClose: () => void;
   open: boolean;
 };
 
-export const EditCategoryDialog = ({
-  onClose,
-  open
-}: EditCategoryDialogProps) => {
+export const EditChannelDialog = ({
+                                     onClose,
+                                     open
+                                   }: EditChannelDialogProps) => {
   return (
     <Dialog fullWidth open={open} onClose={onClose}>
-      <DialogTitle>{'Edit category'}</DialogTitle>
+      <DialogTitle>{'Edit channel'}</DialogTitle>
       <DialogContent>
         <TextField
           autoFocus
           fullWidth
-          label={'Category description'}
+          label={'Channel description'}
           margin="dense"
         />
       </DialogContent>
@@ -31,7 +31,7 @@ export const EditCategoryDialog = ({
           {'Cancel'}
         </Button>
         <Button onClick={onClose} color="primary">
-          {'Create'}
+          {'Update channel'}
         </Button>
       </DialogActions>
     </Dialog>
