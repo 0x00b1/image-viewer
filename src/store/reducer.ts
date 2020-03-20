@@ -17,7 +17,7 @@ export type Channel = {
 export type State = {
   categories: Array<Category>;
   channels: Array<Channel>;
-  selected?: string;
+  selected?: string | null;
   maximized: boolean;
 };
 
@@ -100,6 +100,9 @@ export const slice = createSlice({
       state.channels = state.channels.filter((channel: Channel) => {
         return action.payload.identifier !== channel.identifier;
       });
+    },
+    deselect: state => {
+      state.selected = null;
     },
     maximize: state => {
       state.maximized = true;

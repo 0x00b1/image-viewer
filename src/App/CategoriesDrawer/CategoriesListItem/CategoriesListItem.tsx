@@ -9,7 +9,8 @@ import LabelIcon from '@material-ui/icons/Label';
 import clsx from 'clsx';
 import { useStyles } from '../NewCategoryListItem/NewCategoryListItem.css';
 import { CategoryMenu } from '../CategoryMenu';
-import { Category } from '../../../store/reducer';
+import { Category, slice, State } from '../../../store/reducer';
+import { useDispatch, useSelector } from 'react-redux';
 
 type CategoriesListItemProps = {
   category: Category;
@@ -20,19 +21,27 @@ export const CategoriesListItem = ({
   category,
   maximized
 }: CategoriesListItemProps) => {
+  const dispatch = useDispatch();
+
+  const selected = useSelector((state: State) => {
+    return state.selected === category.identifier;
+  });
+
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
-  const onClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
+  const onClick = () => {
+    if (selected) {
+      dispatch(slice.actions.deselect());
+    } else {
+      dispatch(slice.actions.select(category));
+    }
   };
-
-  const onClose = () => setAnchorEl(null);
 
   const styles = useStyles();
 
   return (
     <>
-      <ListItem button dense>
+      <ListItem button dense onClick={onClick} selected={selected}>
         <ListItemIcon>
           <LabelIcon />
         </ListItemIcon>
@@ -40,7 +49,7 @@ export const CategoriesListItem = ({
         <ListItemSecondaryAction
           className={clsx({ [styles.hide]: !maximized })}
         >
-          <IconButton edge="end" onClick={onClick}>
+          <IconButton edge="end" onClick={e => setAnchorEl(e.currentTarget)}>
             <MoreHorizIcon />
           </IconButton>
         </ListItemSecondaryAction>
@@ -49,7 +58,7 @@ export const CategoriesListItem = ({
       <CategoryMenu
         anchorEl={anchorEl}
         category={category}
-        onClose={onClose}
+        onClose={() => setAnchorEl(null)}
         open={Boolean(anchorEl)}
       />
     </>
