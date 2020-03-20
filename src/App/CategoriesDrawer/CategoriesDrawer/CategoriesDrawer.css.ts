@@ -7,7 +7,8 @@ let style = ({ breakpoints, mixins, spacing, transitions }: Theme) => {
     drawer: {
       flexShrink: 0,
       whiteSpace: 'nowrap',
-      width: width
+      width: width,
+      position: 'absolute'
     },
     maximized: {
       transition: transitions.create('width', {

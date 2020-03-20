@@ -5,8 +5,8 @@ import React, { useEffect, useState } from 'react';
 import { useStyles } from './App.css';
 import { ApplicationAppBar } from '../ApplicationAppBar';
 import { CategoriesDrawer } from '../CategoriesDrawer';
-import { ImageCanvas } from '../ImageCanvas';
 import { ImageDrawer } from '../ImageDrawer';
+import { Main } from '../ImageCanvas/Main';
 
 type AppProps = {
   src: string;
@@ -37,11 +37,7 @@ export const App = ({ src }: AppProps) => {
 
       <ImageDrawer />
 
-      <main className={styles.content}>
-        <div className={styles.toolbar} />
-
-        <ImageCanvas image={image} />
-      </main>
+      <Main image={image} />
     </div>
   );
 };
