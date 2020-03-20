@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import MenuItem from '@material-ui/core/MenuItem';
-import { DeleteChannelDialog } from '../DeleteChannelDialog';
-import { Channel } from '../../../../store/reducer';
+import { DeleteChannelDialog } from '../../DeleteChannelDialog';
+import { Channel } from '../../../../../store/reducer';
 
 type DeleteChannelMenuItemProps = {
   channel: Channel;

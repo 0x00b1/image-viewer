@@ -3,7 +3,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import AddIcon from '@material-ui/icons/Add';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import { NewChannelDialog } from '../NewChannelDialog';
+import { NewChannelDialog } from '../../NewChannelDialog';
 
 type NewChannelListItemProps = {};
 

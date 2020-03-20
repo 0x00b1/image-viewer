@@ -1,1 +1,0 @@
-export { ChannelsListItem } from './ChannelsListItem';
