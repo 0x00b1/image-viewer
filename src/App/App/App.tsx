@@ -35,7 +35,7 @@ export const App = ({ src }: AppProps) => {
 
       <CategoriesDrawer />
 
-      <ImageDrawer />
+      <ImageDrawer image={image} />
 
       <Main image={image} />
     </div>

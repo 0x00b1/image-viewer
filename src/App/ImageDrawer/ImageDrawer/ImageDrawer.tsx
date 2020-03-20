@@ -2,10 +2,14 @@ import React from 'react';
 import Drawer from '@material-ui/core/Drawer';
 import { useStyles } from './ImageDrawer.css';
 import { ChannelsList } from '../ChannelsList';
+import { ImageHistogram } from '../ImageHistogram';
+import Image from 'image-js';
 
-type ImageDrawerProps = {};
+type ImageDrawerProps = {
+  image: Image;
+};
 
-export const ImageDrawer = (_: ImageDrawerProps) => {
+export const ImageDrawer = ({ image }: ImageDrawerProps) => {
   const classes = useStyles();
 
   return (
@@ -16,6 +20,8 @@ export const ImageDrawer = (_: ImageDrawerProps) => {
       variant="permanent"
     >
       <div className={classes.toolbar} />
+
+      <ImageHistogram bins={16} image={image} />
 
       <ChannelsList />
     </Drawer>
