@@ -5,31 +5,31 @@ import DialogContent from '@material-ui/core/DialogContent';
 import TextField from '@material-ui/core/TextField';
 import DialogActions from '@material-ui/core/DialogActions';
 import Button from '@material-ui/core/Button';
-import { Category, slice } from '../../../store/reducer';
+import { Channel, slice } from '../../../store/reducer';
 import { useDispatch } from 'react-redux';
 
-type EditCategoryDialogProps = {
-  category: Category;
+type EditChannelDialogProps = {
+  channel: Channel;
   onClose: () => void;
   open: boolean;
 };
 
-export const EditCategoryDialog = ({
-  category,
+export const EditChannelDialog = ({
+  channel,
   onClose,
   open
-}: EditCategoryDialogProps) => {
+}: EditChannelDialogProps) => {
   const dispatch = useDispatch();
 
-  const [description, setDescription] = useState<string>(category.description);
+  const [description, setDescription] = useState<string>(channel.description);
 
   const onDescriptionChange = (event: ChangeEvent<HTMLInputElement>) => {
     setDescription(event.target.value);
   };
 
-  const onEditCategory = () => {
-    const edited: Category = {
-      ...category,
+  const onEditChannel = () => {
+    const edited: Channel = {
+      ...channel,
       description: description
     };
 
@@ -40,12 +40,12 @@ export const EditCategoryDialog = ({
 
   return (
     <Dialog fullWidth open={open} onClose={onClose}>
-      <DialogTitle>{'Edit category'}</DialogTitle>
+      <DialogTitle>{'Edit channel'}</DialogTitle>
       <DialogContent>
         <TextField
           autoFocus
           fullWidth
-          label={'Category description'}
+          label={'Channel description'}
           margin="dense"
           onChange={onDescriptionChange}
           value={description}
@@ -55,7 +55,7 @@ export const EditCategoryDialog = ({
         <Button onClick={onClose} color="primary">
           {'Cancel'}
         </Button>
-        <Button onClick={onEditCategory} color="primary">
+        <Button onClick={onEditChannel} color="primary">
           {'Edit'}
         </Button>
       </DialogActions>

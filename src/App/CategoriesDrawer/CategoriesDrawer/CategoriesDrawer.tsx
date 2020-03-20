@@ -7,16 +7,14 @@ import { useTheme } from '@material-ui/core';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import clsx from 'clsx';
+import { useDispatch, useSelector } from 'react-redux';
+import { slice, State } from '../../../store/reducer';
 
-type CategoriesDrawerProps = {
-  maximized: boolean;
-  minimize: () => void;
-};
+export const CategoriesDrawer = () => {
+  const dispatch = useDispatch();
 
-export const CategoriesDrawer = ({
-  minimize,
-  maximized
-}: CategoriesDrawerProps) => {
+  const maximized = useSelector((state: State) => state.maximized);
+
   const styles = useStyles();
 
   const theme = useTheme();
@@ -33,10 +31,14 @@ export const CategoriesDrawer = ({
     [styles.minimized]: !maximized
   });
 
+  const onMinimize = () => {
+    dispatch(slice.actions.minimize());
+  };
+
   return (
     <Drawer classes={classes} className={className} variant="permanent">
       <div className={styles.toolbar}>
-        <IconButton onClick={minimize}>
+        <IconButton onClick={onMinimize}>
           {theme.direction === 'rtl' ? (
             <ChevronRightIcon />
           ) : (

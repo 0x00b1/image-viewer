@@ -13,15 +13,9 @@ type AppProps = {
 };
 
 export const App = ({ src }: AppProps) => {
-  const [brightness, setBrightness] = useState<number>(0.0);
-  const [contrast, setContrast] = useState<number>(0.0);
   const [image, setImage] = useState<Image>(new Image());
-  const [maximized, setMaximized] = useState<boolean>(true);
 
   const styles = useStyles();
-
-  const maximize = () => setMaximized(true);
-  const minimize = () => setMaximized(false);
 
   useEffect(() => {
     const openImage = async () => {
@@ -37,24 +31,16 @@ export const App = ({ src }: AppProps) => {
     <div className={styles.root}>
       <CssBaseline />
 
-      <ApplicationAppBar maximize={maximize} maximized={maximized} />
+      <ApplicationAppBar />
 
-      <CategoriesDrawer minimize={minimize} maximized={maximized} />
+      <CategoriesDrawer />
 
-      <ImageDrawer
-        brightness={brightness}
-        image={image}
-        setBrightness={setBrightness}
-      />
+      <ImageDrawer />
 
       <main className={styles.content}>
         <div className={styles.toolbar} />
 
-        <ImageCanvas
-          brightness={brightness}
-          contrast={contrast}
-          image={image}
-        />
+        <ImageCanvas image={image} />
       </main>
     </div>
   );

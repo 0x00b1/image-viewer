@@ -4,17 +4,13 @@ import React from 'react';
 
 import { useStyles } from './ApplicationAppBar.css';
 
-import { ApplicationToolbar } from '../ApplicationToolbar/ApplicationToolbar';
+import { ApplicationToolbar } from '../ApplicationToolbar';
+import { useSelector } from 'react-redux';
+import { State } from '../../../store/reducer';
 
-type ApplicationAppBarProps = {
-  maximize: () => void;
-  maximized: boolean;
-};
+export const ApplicationAppBar = () => {
+  const maximized = useSelector((state: State) => state.maximized);
 
-export const ApplicationAppBar = ({
-  maximize,
-  maximized
-}: ApplicationAppBarProps) => {
   const styles = useStyles();
 
   const className = clsx(styles.appBar, {
@@ -23,7 +19,7 @@ export const ApplicationAppBar = ({
 
   return (
     <AppBar className={className} position="fixed">
-      <ApplicationToolbar maximize={maximize} maximized={maximized} />
+      <ApplicationToolbar />
     </AppBar>
   );
 };

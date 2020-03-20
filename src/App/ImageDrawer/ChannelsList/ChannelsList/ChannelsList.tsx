@@ -1,19 +1,24 @@
 import List from '@material-ui/core/List';
 import React from 'react';
+import { useSelector } from 'react-redux';
 
-import { useStyles } from './ChannelsList.css';
-import {ChannelListItem} from "../ChannelListItem";
+import { ChannelsListItem } from '../ChannelsListItem';
+import { NewChannelListItem } from '../NewChannelListItem';
+import { Channel, State } from '../../../../store/reducer';
 
 type ChannelsListProps = {};
 
 export const ChannelsList = (_: ChannelsListProps) => {
-  const styles = useStyles();
+  const channels = useSelector((state: State) => {
+    return state.channels;
+  });
 
   return (
-    <List className={styles.root} component="nav">
-      <ChannelListItem description={"Concanavalin A"}/>
-      <ChannelListItem description={"Hoechst 33342"}/>
-      <ChannelListItem description={"MitoTracker Deep Red FM"}/>
+    <List component="nav">
+      {channels.map((channel: Channel) => {
+        return <ChannelsListItem channel={channel} key={channel.identifier} />;
+      })}
+      <NewChannelListItem />
     </List>
   );
 };

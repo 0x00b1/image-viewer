@@ -6,20 +6,14 @@ import IconButton from '@material-ui/core/IconButton';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import LabelIcon from '@material-ui/icons/Label';
-import clsx from 'clsx';
-import { useStyles } from '../NewCategoryListItem/NewCategoryListItem.css';
-import { CategoryMenu } from '../CategoryMenu';
-import { Category } from '../../../store/reducer';
+import { ChannelMenu } from '../../ChannelMenu';
+import { Channel } from '../../../../store/reducer';
 
-type CategoriesListItemProps = {
-  category: Category;
-  maximized: boolean;
+type ChannelsListItemProps = {
+  channel: Channel;
 };
 
-export const CategoriesListItem = ({
-  category,
-  maximized
-}: CategoriesListItemProps) => {
+export const ChannelsListItem = ({ channel }: ChannelsListItemProps) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const onClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -28,27 +22,23 @@ export const CategoriesListItem = ({
 
   const onClose = () => setAnchorEl(null);
 
-  const styles = useStyles();
-
   return (
     <>
       <ListItem button dense>
         <ListItemIcon>
           <LabelIcon />
         </ListItemIcon>
-        <ListItemText primary={category.description} />
-        <ListItemSecondaryAction
-          className={clsx({ [styles.hide]: !maximized })}
-        >
+        <ListItemText primary={channel.description} />
+        <ListItemSecondaryAction>
           <IconButton edge="end" onClick={onClick}>
             <MoreHorizIcon />
           </IconButton>
         </ListItemSecondaryAction>
       </ListItem>
 
-      <CategoryMenu
+      <ChannelMenu
         anchorEl={anchorEl}
-        category={category}
+        channel={channel}
         onClose={onClose}
         open={Boolean(anchorEl)}
       />

@@ -1,20 +1,12 @@
 import Toolbar from '@material-ui/core/Toolbar';
 import React from 'react';
 
-import { MaximizeButton } from '../MaximizeButton/MaximizeButton';
+import { MaximizeButton } from '../MaximizeButton';
 
-type ApplicationToolbarProps = {
-  maximize: () => void;
-  maximized: boolean;
-};
-
-export const ApplicationToolbar = ({
-  maximize,
-  maximized
-}: ApplicationToolbarProps) => {
+export const ApplicationToolbar = () => {
   return (
     <Toolbar>
-      <MaximizeButton maximize={maximize} maximized={maximized} />
+      <MaximizeButton />
     </Toolbar>
   );
 };

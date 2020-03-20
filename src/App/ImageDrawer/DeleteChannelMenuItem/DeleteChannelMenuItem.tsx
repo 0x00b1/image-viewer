@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import MenuItem from '@material-ui/core/MenuItem';
+import { DeleteChannelDialog } from '../DeleteChannelDialog';
+import { Channel } from '../../../store/reducer';
 
 type DeleteChannelMenuItemProps = {
+  channel: Channel;
   onMenuClose: () => void;
 };
 
 export const DeleteChannelMenuItem = ({
-                                         onMenuClose
-                                       }: DeleteChannelMenuItemProps) => {
+  channel,
+  onMenuClose
+}: DeleteChannelMenuItemProps) => {
   const [open, setOpen] = useState(false);
 
   const onClose = () => {
@@ -23,8 +27,10 @@ export const DeleteChannelMenuItem = ({
   return (
     <>
       <MenuItem dense onClick={onClick}>
-        {'Delete category'}
+        {'Delete channel'}
       </MenuItem>
+
+      <DeleteChannelDialog channel={channel} onClose={onClose} open={open} />
     </>
   );
 };

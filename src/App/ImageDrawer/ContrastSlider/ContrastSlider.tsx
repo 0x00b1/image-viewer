@@ -3,20 +3,20 @@ import Slider from '@material-ui/core/Slider';
 import { useDispatch } from 'react-redux';
 import { Channel, slice } from '../../../store/reducer';
 
-type BrightnessSliderProps = {
+type ContrastSliderProps = {
   channel: Channel;
 };
 
-export const BrightnessSlider = ({ channel }: BrightnessSliderProps) => {
+export const ContrastSlider = ({ channel }: ContrastSliderProps) => {
   const dispatch = useDispatch();
 
   const onChange = (
     _: React.ChangeEvent<{}>,
-    brightness: number | number[]
+    contrast: number | number[]
   ): void => {
     const edited: Channel = {
       ...channel,
-      brightness: brightness as number
+      contrast: contrast as number
     };
 
     dispatch(slice.actions.editChannel(edited));
@@ -28,7 +28,7 @@ export const BrightnessSlider = ({ channel }: BrightnessSliderProps) => {
       min={-1.0}
       onChange={onChange}
       step={0.1}
-      value={channel.brightness}
+      value={channel.contrast}
     />
   );
 };

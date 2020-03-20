@@ -4,28 +4,30 @@ import clsx from 'clsx';
 import React from 'react';
 
 import { useStyles } from './MaximizeButton.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { slice, State } from '../../../store/reducer';
 
-type MaximizeButtonProps = {
-  maximize: () => void;
-  maximized: boolean;
-};
+export const MaximizeButton = () => {
+  const dispatch = useDispatch();
 
-export const MaximizeButton = ({
-  maximize,
-  maximized
-}: MaximizeButtonProps) => {
+  const maximized = useSelector((state: State) => state.maximized);
+
   const classes = useStyles();
 
   const className = clsx(classes.iconButton, {
     [classes.hide]: maximized
   });
 
+  const onMaximize = () => {
+    dispatch(slice.actions.maximize());
+  };
+
   return (
     <IconButton
       className={className}
       color="inherit"
       edge="start"
-      onClick={maximize}
+      onClick={onMaximize}
     >
       <MenuIcon />
     </IconButton>
