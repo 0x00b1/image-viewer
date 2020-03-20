@@ -9,6 +9,7 @@ import { Channel, slice } from '../../../../store/reducer';
 import { useDispatch } from 'react-redux';
 import { BrightnessSlider } from '../BrightnessSlider';
 import { ContrastSlider } from '../ContrastSlider';
+import { UploadButton } from '../UploadButton';
 
 type EditChannelDialogProps = {
   channel: Channel;
@@ -44,6 +45,8 @@ export const EditChannelDialog = ({
     <Dialog fullWidth open={open} onClose={onClose}>
       <DialogTitle>{'Edit channel'}</DialogTitle>
       <DialogContent>
+        <UploadButton />
+
         <TextField
           autoFocus
           fullWidth

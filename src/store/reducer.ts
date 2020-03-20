@@ -10,6 +10,7 @@ export type Channel = {
   brightness: number;
   contrast: number;
   description: string;
+  filename?: string;
   identifier: string;
 };
 
