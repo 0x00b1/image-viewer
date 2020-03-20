@@ -2,7 +2,7 @@ import React from 'react';
 import Menu from '@material-ui/core/Menu';
 import { EditChannelMenuItem } from '../EditChannelMenuItem';
 import { DeleteChannelMenuItem } from '../DeleteChannelMenuItem';
-import { Channel } from '../../../store/reducer';
+import { Channel } from '../../../../store/reducer';
 
 type ChannelMenuProps = {
   anchorEl: null | HTMLElement;

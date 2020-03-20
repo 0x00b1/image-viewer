@@ -6,7 +6,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import LabelIcon from '@material-ui/icons/Label';
-import { ChannelMenu } from '../../ChannelMenu';
+import { ChannelMenu } from '../ChannelMenu';
 import { Channel } from '../../../../store/reducer';
 
 type ChannelsListItemProps = {

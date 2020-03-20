@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import MenuItem from '@material-ui/core/MenuItem';
 import { EditChannelDialog } from '../EditChannelDialog';
-import { Channel } from '../../../store/reducer';
+import { Channel } from '../../../../store/reducer';
 
 type EditChannelMenuItemProps = {
   channel: Channel;

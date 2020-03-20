@@ -1,1 +1,1 @@
-export {DeleteChannelDialog} from "./DeleteChannelDialog";
+export { DeleteChannelDialog } from './DeleteChannelDialog';

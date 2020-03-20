@@ -1,7 +1,8 @@
 import React from 'react';
 import Slider from '@material-ui/core/Slider';
 import { useDispatch } from 'react-redux';
-import { Channel, slice } from '../../../store/reducer';
+import { Channel, slice } from '../../../../store/reducer';
+import Typography from '@material-ui/core/Typography';
 
 type ContrastSliderProps = {
   channel: Channel;
@@ -23,12 +24,16 @@ export const ContrastSlider = ({ channel }: ContrastSliderProps) => {
   };
 
   return (
-    <Slider
-      max={1.0}
-      min={-1.0}
-      onChange={onChange}
-      step={0.1}
-      value={channel.contrast}
-    />
+    <>
+      <Typography gutterBottom>{'Contrast'}</Typography>
+
+      <Slider
+        max={1.0}
+        min={-1.0}
+        onChange={onChange}
+        step={0.1}
+        value={channel.contrast}
+      />
+    </>
   );
 };
